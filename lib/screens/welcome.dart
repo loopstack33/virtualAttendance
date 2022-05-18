@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:virtual_attendance/screens/login.dart';
+import 'package:virtual_attendance/screens/register.dart';
+import 'package:virtual_attendance/utils/app_routes.dart';
 import 'package:virtual_attendance/utils/color_constants.dart';
 import 'package:virtual_attendance/utils/image_src.dart';
 import 'package:virtual_attendance/widgets/default_color_button.dart';
@@ -36,13 +39,11 @@ class _WelcomeState extends State<Welcome> {
                     child: Column(
                       children: [
                         DefaultColorButton(text: "Register", press: (){
-
+                          AppRoutes.push(context, PageTransitionType.fade, const Register());
                         }),
                         const SizedBox(height: 20,),
                         DefaultWhiteButton(text: "Login", press: (){
-                          Navigator.of(context).push(
-                            MaterialPageRoute(builder: (_) => const Login()),
-                          );
+                          AppRoutes.push(context, PageTransitionType.fade, const Login());
                         }),
                       ],
                     ),
